@@ -1,0 +1,59 @@
+{% load bootstrap3 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=1 %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+<head>
+	<link href="sticky-footer.css" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		{% include "wypozyczalnia/banner.html" %}
+	 	<div class="container-fluid">
+		    	<div class="navbar-header navbar-btn">
+			      	<a class="navbar-brand navbar-btn" href="/">
+			        	{% bootstrap_icon "home" %}
+			      	</a>
+			      	<a class="navbar-brand navbar-btn" href="/projekt">O projekcie</a>
+			    </div>
+		    <ul class="nav navbar-nav navbar-right">
+		        <li><a href="/"><span type="button" class="btn navbar-btn">O Firmie</span></a></li>
+		       	<li><a href="/"><span type="button" class="btn navbar-btn">Katalog Sprzętu</span></a></li>
+		       	 {% if request.user.is_authenticated %}
+		       	 <li class="navbar-btn">
+		         	<a href="#" class="btn navbar-btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Panel Użytkownika <span class="caret"></span></a>
+		          	<ul class="dropdown-menu">
+		            	<li><a href="login">Historia Zamówień</a></li>
+		            	<li><a href="login">Dane Osobowe</a></li>
+		            	<li><a href="login">Program Lojanościowy</a></li>
+		            	<li role="separator" class="divider"></li>
+		            	<li><a href="login">Wyloguj</a></li>
+		          	</ul>
+		        </li>
+		        {% else %}
+		        <li><a href="login"><span type="button" class="btn navbar-btn">Zaloguj się</span></a></li>
+		       	{% endif %}
+		       	<li><a href="/test"><span type="button" class="btn btn-primary navbar-btn">Koszyk {% bootstrap_icon "shopping-cart" %}<span class="badge">4</span></span></a></li>
+			
+			</ul>
+		</div>
+	</nav>
+
+	{% block content %}
+	{% endblock %}
+
+	
+	<hr>
+	<footer>
+		<p class="pull-left" >© Politechnika Wrocławska 2016</p>
+		<div class="pull-right">
+			<ul class="list-inline">
+				<li><a href="/">O Firmie</a></li>
+				<li><a href="/">Katalog Sprzętu</a></li>
+				<li><a href="/projekt">O Projekcie</a></li>
+			</ul>
+		</div>
+	</footer>
+</body>

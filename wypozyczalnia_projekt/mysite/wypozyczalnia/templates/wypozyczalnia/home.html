@@ -1,0 +1,40 @@
+{% extends 'wypozyczalnia/base.html' %} 
+ {% load static %}
+{% load bootstrap3 %}
+{% block content %}
+<div class="jumbotron">
+  <h1 align="center">Wypożyczalnia Sprzętu Rowerowego</h1>
+</div>
+<div class="container">
+	<div class="row col-md-12" align="center">
+	<h1>Jak nas znaleźć:</h1>
+  <hr>
+	</div>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4 col-lg-4">
+          <h3>Mapa:</h3>
+          <br>
+           <img src="{% static "wypozyczalnia/map.jpg" %}" alt="First slide" class="img-rounded img-responsive">
+          <br>
+          <p align="center"><a class="btn btn-default" align="center" target="_blank" href="https://www.google.pl/maps/place/wybrze%C5%BCe+Stanis%C5%82awa+Wyspia%C5%84skiego+25,+50-370+Wroc%C5%82aw/@51.107131,17.0574838,17z/data=!3m1!4b1!4m5!3m4!1s0x470fc2803ab4b541:0x8ce69671c8b7e25b!8m2!3d51.1071565!4d17.0608622?hl=pl" role="button">Google Maps &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h3>Adres:</h3>
+          <br>
+          <h5><b>Wrocław</b></h5>
+          <h5>Wybrzeże Stanisława Wyspiańskiego 123</h5>
+          <h5>50-420<h5>
+       </div>
+        <div class="col-md-4">
+          <h3>Kontakt:</h3>
+          <br>
+          <p>{% bootstrap_icon "phone" %} 500-123-456</p>
+          <p>{% bootstrap_icon "earphone" %} (12)-123-45-67</p>
+          <p>{% bootstrap_icon "envelope" %} wypozyczalnia@sprzetu.pl</p>
+          
+        </div>
+      </div>
+
+
+{% endblock %}
