@@ -25,9 +25,10 @@ SECRET_KEY = '#)yobv1!i8ki7)c*_41p((+_va0%v(^soo(f%+j6647q8q(bvu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.6',]
-
-
+ALLOWED_HOSTS = ['192.168.1.6', '127.0.0.1']
+#LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 # Application definition
 
 INSTALLED_APPS = [
@@ -53,6 +54,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+
+SITE_ID = 1
 
 TEMPLATES = [
     {
