@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 
-from wypozyczalnia.models import Sprzet
+from wypozyczalnia.models import Sprzet, Kategoria
 # Create your views here.
 
 
@@ -23,9 +23,9 @@ class HomeView(TemplateView):
 
 class SprzetListView(ListView):
 
-    model = Sprzet
+    model = Kategoria
 
     def get_context_data(self, **kwargs):
         context = super(SprzetListView, self).get_context_data(**kwargs)
-        context['now'] = timezone.now()
+        context['sprzet_list'] = Sprzet.objects.all()
         return context

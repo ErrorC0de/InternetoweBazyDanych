@@ -20,7 +20,8 @@ class Sprzet(models.Model):
 	nazwa = models.CharField(max_length=40)
 	producent = models.ForeignKey(Producent, on_delete=models.CASCADE)
 	kategoria = models.ForeignKey(Kategoria, on_delete=models.CASCADE)
-
+	opis = models.CharField(max_length=255)
+	zdjecie_link = models.CharField(max_length=255)
 	def __str__(self):
 		return str(self.nazwa)
 
