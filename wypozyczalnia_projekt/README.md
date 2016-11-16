@@ -1,4 +1,5 @@
 # InternetoweBazyDanych
+## Projekt aplikacji pełniącej rolę internetowego systemu wypożyczeń sprzętu rowerowego.
 
 ##Prekwizyty:
 1. Python
