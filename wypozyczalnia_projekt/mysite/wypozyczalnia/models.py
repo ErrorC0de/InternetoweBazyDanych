@@ -41,7 +41,7 @@ class Egzemplarz(models.Model):
 	data_zakupu = models.DateTimeField()
 
 	def __str__(self):
-		return str(self.sprzet)
+		return str(self.sprzet) + "\n egzemplarz:" +str(self.id)
 
 class Koszyk(models.Model):
 	klient = models.ForeignKey(User, on_delete=models.CASCADE)
