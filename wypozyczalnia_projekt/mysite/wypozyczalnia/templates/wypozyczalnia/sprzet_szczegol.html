@@ -6,8 +6,53 @@
 
 
 
-
 {% block content %}
-{{ id }}
+
+<div class="container">
+<div class="row">
+   <div class="col-md-4"  align="center">
+      <img src={% static object.zdjecie_link %}  align="center" alt="..." class="img-rounded img-responsive">
+
+   </div>
+   <div class="col-md-8">
+      <h3>
+   {{ object.producent }} {{ object.nazwa }}</h3>
+          <p class="text-muted"><span class="glyphicon glyphicon-calendar"></span>Dostępnych sztuk: {{ sztuk }}</p>
+      <p>{{ object.opis }} </p>
+
+ 
+      
+   </div>
+</div>
+<hr>
+
+
+ <div class="row" >
+   <div class="col-md-8"  >
+   </div>
+
+   <div >
+
+<form method="POST" action = "/do_koszyka/{{ object.id }}/" >
+  {% csrf_token %}
+   <div class="col-md-2" >
+<select class="form-control" name="quantity" >
+{% for i in loop_times %}
+
+         <option value = {{ i }}>{{ i }}</option>
+         {% empty %}
+      <option value = "0">0</option>
+         {% endfor %}
+ </select> </div>
+<div class="col-md-2" >
+ <input class="btn btn-success" type="submit" role="button" value = "Wypożycz &raquo;"></input>
+      </div>
+<br>
+</form>
+</div>
+ 
+    </div>
+</div>
+</div>
 
 {% endblock %}

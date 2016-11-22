@@ -1,0 +1,29 @@
+{% extends 'wypozyczalnia/base.html' %} 
+{% load bootstrap3 %}
+{%load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=1 %}
+{% block content %}
+
+
+ <div class="container " align=" center">
+ {% for egzemplarz in egzemplarz_list %}
+
+         <div class="row">
+            <div class="col-sm-2 "><img src={% static egzemplarz.sprzet.zdjecie_link %} class="img-responsive">
+            </div>
+            <div class="col-sm-8 pagination-centered span12" align = "center">
+               <a href="/katalog/sprzet/{{egzemplarz.sprzet.id}}/">
+                  <h3 class="title pagination-centered span12"><b>{{ egzemplarz.sprzet.producent }} <i>{{egzemplarz.sprzet.nazwa}} </i></b></h3><h5>Wewnętrzne ID sprzętu: {{ egzemplarz.id }}</h5>
+               </a>
+            </div>
+         </div>
+   		<hr>
+         {% empty %}
+         <div class="row">
+            <h3 class="title">Brak wypożyczonych produktów</h3>
+         </div>
+         {% endfor %}
+</div>
+
+{% endblock %}

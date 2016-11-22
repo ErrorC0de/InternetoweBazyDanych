@@ -1,5 +1,4 @@
 # InternetoweBazyDanych
-## Projekt aplikacji pełniącej rolę internetowego systemu wypożyczeń sprzętu rowerowego.
 
 ##Prekwizyty:
 1. Python
@@ -7,3 +6,4 @@
 	* pip install Django
 	* pip install mySQL-python
 	* pip install django-bootstrap3
+	* pip install django-registration-redux

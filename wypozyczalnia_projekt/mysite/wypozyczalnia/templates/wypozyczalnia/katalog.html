@@ -63,14 +63,14 @@
          <hr>
          {% for sprzet in sprzet_list %}
          <div class="row">
-            <div class="col-sm-4"><a href="/katalog/sprzet/{{sprzet.id}}/" class=""><img src={{sprzet.zdjecie_link}} class="img-responsive"></a>
+            <div class="col-sm-4"><a href="/katalog/sprzet/{{sprzet.id}}/" class=""><img src={% static sprzet.zdjecie_link %} class="img-responsive"></a>
             </div>
             <div class="col-sm-8">
                <a href="/katalog/sprzet/{{sprzet.id}}/">
                   <h3 class="title"><b>{{ sprzet.producent }} <i>{{sprzet.nazwa}}</i></b></h3>
                </a>
-               <p class="text-muted"><span class="glyphicon glyphicon-calendar"></span>Dostępnych sztuk: </p>
-               <p>{{ sprzet.opis }}</p>
+          <!--     <p class="text-muted"><span class="glyphicon glyphicon-calendar"></span>Dostępnych sztuk: </p> -->
+         <!--      <p>{{ sprzet.opis }}</p> -->
             </div>
          </div>
          <hr>

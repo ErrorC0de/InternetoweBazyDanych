@@ -26,8 +26,11 @@
             <br>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj</button>
          </form>
+         <h4>Nie posiadasz konta?</h4>
+         <h5><a href="/register/?next={% firstof request.path %}">Zarejestruj się</a></h5>
       </div>
       <!-- /container -->
    </div>
 </div>
 {% endblock %}
+

@@ -37,8 +37,13 @@ class Egzemplarz(models.Model):
 	sprzet = models.ForeignKey(Sprzet, on_delete=models.CASCADE)
 	punkt_serwisowy = models.ForeignKey(PunktSerwisowy, on_delete=models.CASCADE)
 	data_ostatniego_przegladu = models.DateTimeField()
+	wypozyczono = models.BooleanField(default=False)
 	wycofany = models.BooleanField(default=False)
 	data_zakupu = models.DateTimeField()
+	wypozyczony_przez = models.ForeignKey( User, on_delete=models.CASCADE, blank=True, null=True)
+	def get_niewypozyczone_ilosc(self, sprzet_fk):
+		print('nowitam')
+		return self.egzemplarz_set.get(wypozyczono=False, sprzet = sprzet_fk)
 
 	def __str__(self):
 		return str(self.sprzet) + "\n egzemplarz:" +str(self.id)

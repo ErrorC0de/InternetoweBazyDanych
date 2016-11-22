@@ -3,6 +3,7 @@
 {% bootstrap_css %}
 {% bootstrap_javascript jquery=1 %}
 {% bootstrap_messages %}
+
 <body>
    <nav class="navbar navbar-inverse">
       {% include "wypozyczalnia/banner.html" %}
@@ -20,9 +21,9 @@
             <li class="navbar-btn">
                <a href="#" class="btn navbar-btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Panel Użytkownika <span class="caret"></span></a>
                <ul class="dropdown-menu">
-                  <li><a href="/">Historia Zamówień</a></li>
-                  <li><a href="login">Dane Osobowe</a></li>
-                  <li><a href="login">Program Lojanościowy</a></li>
+             <!--     <li><a href="/">Historia Zamówień</a></li> -->
+                  <li><a href="">Dane Osobowe</a></li>
+                  <li><a href="">Program Lojanościowy</a></li>
                   <li role="separator" class="divider"></li>
                   <li><a href="/logout/?next={% firstof request.path %}">Wyloguj</a></li>
                </ul>
@@ -30,7 +31,9 @@
             {% else %}
             <li><a href="/login/?next={% firstof request.path %}"><span type="button" class="btn navbar-btn">Zaloguj się</span></a></li>
             {% endif %}
-            <li><a href="/test"><span type="button" class="btn btn-primary navbar-btn">Koszyk {% bootstrap_icon "shopping-cart" %}<span class="badge">4</span></span></a></li>
+             {% if request.user.is_authenticated %}
+            <li><a href="/koszyk"><span type="button" class="btn btn-primary navbar-btn">Zamówienia {% bootstrap_icon "shopping-cart" %}<span class="badge"></span></span></a></li>
+            {% endif %}
          </ul>
       </div>
    </nav>

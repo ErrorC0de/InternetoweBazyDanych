@@ -29,6 +29,7 @@ ALLOWED_HOSTS = ['192.168.1.6', '127.0.0.1']
 #LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'bootstrap3',
-    'wypozyczalnia.apps.WypozyczalniaConfig'
+    'wypozyczalnia.apps.WypozyczalniaConfig',
+    'registration'
 ]
 
 MIDDLEWARE = [
