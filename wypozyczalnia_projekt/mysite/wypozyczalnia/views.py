@@ -13,6 +13,8 @@ from django.contrib.auth.models import User
 from wypozyczalnia.models import Sprzet, Kategoria, Egzemplarz
 from wypozyczalnia.forms import IloscForm
 from django import template
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 
@@ -34,7 +36,8 @@ class SprzetListView(ListView):
         return context
 
 
-class SprzetDetailView(DetailView):
+class SprzetDetailView(LoginRequiredMixin, DetailView):
+	login_url = '/login/'
 	model = Sprzet
 	pk_url_kwarg = "post_id"
 
